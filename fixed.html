@@ -177,6 +177,49 @@ var targetSettings = [pageSection.slug, 'presente'];        window.isLocked = fa
     }
 </script>
 
+<style>
+@media screen and (min-width: 1024px) {
+    .parallax {
+        background-size: 420px !important;
+        background-position-x: calc(50% - (420px / 2)) !important;
+    }
+}
+
+@media screen and (min-width: 1050px) {
+    .parallax {
+        background-size: 440px !important;
+        background-position-x: calc(50% - (440px / 2)) !important;
+    }
+}
+
+@media screen and (min-width: 1100px) {
+    .parallax {
+        background-size: 460px !important;
+        background-position-x: calc(50% - (460px / 2)) !important;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    .parallax {
+        background-size: 483px !important;
+        background-position-x: calc(50% - (483px / 2)) !important;
+    }
+}
+
+.parallax {
+    width: 100%;
+    height: 100%;
+    background: url("https://static.publico.pt/assinaturas/diadosnamorados/Landing_D2.jpg") center no-repeat;
+    background-attachment: fixed;
+    background-position-y: 108px;
+}
+
+p.text-image {
+    top: auto !important;
+    bottom: 90px;
+}
+</style>
+
 
     <script async="" src="https://cdn.onthe.io/io.js/7jgFmFtj53Dj"></script>
     <script>
@@ -694,7 +737,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <figure class="card__media">
               <div class="flex-media"> 
                 <p class="text-image show-for-large">Presente Assinatura, a oferta do melhor jornalismo</p>
-                <img class="show-for-large" src="https://static.publico.pt/assinaturas/diadosnamorados/Landing_D2.jpg" alt="">
+                  <!--<img class="show-for-large" src="https://static.publico.pt/assinaturas/diadosnamorados/Landing_D2.jpg" alt="">-->
+                  <div class="parallax"></div>
                 <img class="hide-for-large" src="https://static.publico.pt/assinaturas/diadosnamorados/Landing_M.jpg" alt="">
               </div>
               <!-- <p>Todo o cinema que procura:<br> Assinatura trimestral Público + Cinema <span><span class="show-for-sr">por apenas</span> 29,99<small>€</small></span></p> -->
@@ -1988,6 +2032,25 @@ function mostraData(dt){
 			}
 		});
 	  </script>
+
+<script>
+    $(function() {
+
+        $(window).scroll(function() {
+            var scroll = $(window).scrollTop();
+
+            if (scroll > 45 && scroll < 140) {
+                $('.parallax').css({"background-position-y": "60px"});
+            }
+            if (scroll < 45) {
+                $('.parallax').css({"background-position-y": `${(108 - scroll)}px`});
+            }
+            if (scroll > 140) {
+                $('.parallax').css({"background-position-y": `${(135 -(scroll / 1.2))}px`});
+            }
+        });
+    });
+</script>
 
       <!-- Your Chat Plugin code -->
       <div class="fb-customerchat" page_id="88388366982" theme_color="#B90017" greeting_dialog_display="hide" greeting_dialog_delay="10">
